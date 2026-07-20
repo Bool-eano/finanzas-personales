@@ -1,23 +1,25 @@
 let grafico = null;
 
 const coloresCategorias = {
-  Vivienda: "#8b5cf6", // morado
+  Vivienda: "#8b5cf6",
 
-  Alimentación: "#f59e0b", // naranja
+  Alimentación: "#f59e0b",
 
-  Transporte: "#38bdf8", // azul claro
+  Transporte: "#38bdf8",
 
-  Ocio: "#ec4899", // rosa
+  Ocio: "#ec4899",
 
-  Salud: "#22c55e", // verde
+  Restaurantes: "#ef4444",
 
-  Vacaciones: "#06b6d4", // turquesa
+  Salud: "#22c55e",
 
-  Veterinario: "#a3e635", // lima
+  Vacaciones: "#06b6d4",
 
-  Ropa: "#f97316", // naranja intenso
+  Veterinario: "#a3e635",
 
-  Otros: "#71717a", // gris
+  Ropa: "#f97316",
+
+  Otros: "#71717a",
 };
 
 function dibujarGrafico(categorias) {
