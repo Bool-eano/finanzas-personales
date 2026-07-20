@@ -43,15 +43,16 @@ function actualizar() {
     }
 
     lista.innerHTML += `
-            <tr>
-                <td>${m.fecha}</td>
-                <td>${m.descripcion}</td>
-                <td>${m.categoria}</td>
-                <td class="${m.tipo}">${m.tipo}</td>
-                <td>${m.importe.toFixed(2)} €</td>
-                <td><button onclick="borrar(${m.id})">❌</button></td>
-            </tr>
-        `;
+        <div class="movement">
+            <div>
+                <strong> ${m.categoria}</strong>
+                <br>
+                ${m.descripcion}
+            </div>
+
+            <div class="${m.tipo}">${m.tipo === "gasto" ? "-" : "+"}${m.importe.toFixed(2)} €</div>
+        </div>
+    `;
   });
 
   document.getElementById("balance").innerHTML =
@@ -107,3 +108,11 @@ function importar() {
 }
 
 actualizar();
+
+function abrirModal() {
+  document.getElementById("modal").style.display = "flex";
+}
+
+function cerrarModal() {
+  document.getElementById("modal").style.display = "none";
+}
