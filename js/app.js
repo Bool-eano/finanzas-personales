@@ -43,7 +43,8 @@ function agregarMovimiento() {
 
   let importe = Number(document.getElementById("importe").value);
 
-  let categoria = document.getElementById("categoria").value;
+  let categoria =
+    tipo === "gasto" ? document.getElementById("categoria").value : "";
 
   let fecha = document.getElementById("fecha").value;
 
@@ -97,7 +98,25 @@ function nuevoMovimiento() {
 
   limpiarFormulario();
 
+  cambiarTipoMovimiento();
+
+  document.getElementById("fecha").value = new Date()
+    .toISOString()
+    .slice(0, 10);
+
   abrirModal();
+}
+
+function cambiarTipoMovimiento() {
+  let tipo = document.getElementById("tipo").value;
+
+  let categoria = document.getElementById("categoria-container");
+
+  if (tipo === "ingreso") {
+    categoria.style.display = "none";
+  } else {
+    categoria.style.display = "block";
+  }
 }
 
 function editarMovimiento(id) {
@@ -118,6 +137,8 @@ function editarMovimiento(id) {
   document.getElementById("categoria").value = movimiento.categoria;
 
   document.getElementById("fecha").value = movimiento.fecha;
+
+  cambiarTipoMovimiento();
 
   abrirModal();
 }
