@@ -1,16 +1,30 @@
 :root {
-  --primary: #6366f1;
-  --purple: #8b5cf6;
+  --background: #09090b;
 
-  --green: #10b981;
+  --surface: #18181b;
+
+  --surface-light: #27272a;
+
+  --primary: #8b5cf6;
+
+  --primary-light: #a78bfa;
+
+  --green: #22c55e;
+
   --red: #ef4444;
 
-  --bg: #f1f5f9;
+  --blue: #38bdf8;
 
-  --card: white;
+  --text: #f8fafc;
 
-  --text: #1e293b;
+  --muted: #a1a1aa;
+
+  --border: #27272a;
 }
+
+/* =========================
+   RESET
+========================= */
 
 * {
   box-sizing: border-box;
@@ -19,51 +33,18 @@
 body {
   margin: 0;
 
-  font-family:
-    Inter,
-    Segoe UI,
-    Arial;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
 
-  background: var(--bg);
+  background: var(--background);
 
   color: var(--text);
+
+  min-height: 100vh;
 }
 
-.topbar {
-  background: linear-gradient(135deg, #4f46e5, #9333ea);
-
-  color: white;
-
-  padding: 25px;
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-}
-
-.topbar h1 {
-  margin: 0;
-}
-
-.topbar p {
-  margin: 5px 0 0;
-
-  opacity: 0.8;
-}
-
-#theme {
-  background: rgba(255, 255, 255, 0.2);
-
-  border: 0;
-
-  font-size: 20px;
-
-  padding: 12px;
-
-  border-radius: 50%;
-}
+/* =========================
+   MAIN
+========================= */
 
 main {
   max-width: 1000px;
@@ -73,16 +54,20 @@ main {
   padding: 25px;
 }
 
-.balance-card {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+/* =========================
+   BALANCE
+========================= */
 
-  color: white;
+.balance-card {
+  background: linear-gradient(135deg, #312e81, #581c87);
 
   border-radius: 25px;
 
   padding: 30px;
 
-  box-shadow: 0 15px 40px #0003;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
 .balance-card span {
@@ -99,6 +84,10 @@ main {
   color: #bbf7d0;
 }
 
+/* =========================
+   SUMMARY CARDS
+========================= */
+
 .summary {
   display: grid;
 
@@ -110,17 +99,19 @@ main {
 }
 
 .money-card {
-  background: var(--card);
+  background: var(--surface);
 
-  padding: 25px;
+  border: 1px solid var(--border);
 
   border-radius: 20px;
 
-  box-shadow: 0 10px 25px #0001;
+  padding: 25px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .money-card span {
-  color: #64748b;
+  color: var(--muted);
 }
 
 .money-card strong {
@@ -139,8 +130,18 @@ main {
   color: var(--red);
 }
 
+.saving strong {
+  color: var(--blue);
+}
+
+/* =========================
+   PANELS
+========================= */
+
 .panel {
-  background: white;
+  background: var(--surface);
+
+  border: 1px solid var(--border);
 
   padding: 25px;
 
@@ -148,8 +149,12 @@ main {
 
   margin-top: 25px;
 
-  box-shadow: 0 10px 30px #0001;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
+
+/* =========================
+   MOVEMENTS
+========================= */
 
 .movimientos {
   display: flex;
@@ -160,16 +165,82 @@ main {
 }
 
 .movement {
+  background: var(--surface-light);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  padding: 18px;
+
   display: flex;
 
   justify-content: space-between;
 
-  padding: 15px;
-
-  border-radius: 15px;
-
-  background: #f8fafc;
+  align-items: center;
 }
+
+.ingreso {
+  color: var(--green);
+
+  font-weight: bold;
+}
+
+.gasto {
+  color: var(--red);
+
+  font-weight: bold;
+}
+
+.movement-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.movement-actions button {
+  width: 35px;
+
+  height: 35px;
+
+  padding: 0;
+
+  border-radius: 10px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+}
+
+.movement-actions button:hover {
+  background: var(--surface-light);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+  border: 0;
+
+  cursor: pointer;
+
+  color: white;
+
+  background: linear-gradient(135deg, var(--primary), #ec4899);
+
+  padding: 14px 20px;
+
+  border-radius: 12px;
+
+  font-weight: 600;
+}
+
+/* =========================
+   FLOAT BUTTON
+========================= */
 
 .floating-button {
   position: fixed;
@@ -184,18 +255,16 @@ main {
 
   border-radius: 50%;
 
-  border: 0;
+  font-size: 32px;
 
-  font-size: 35px;
+  padding: 0;
 
-  color: white;
-
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-
-  box-shadow: 0 10px 30px #0004;
-
-  cursor: pointer;
+  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.5);
 }
+
+/* =========================
+   MODAL
+========================= */
 
 .modal {
   display: none;
@@ -204,7 +273,7 @@ main {
 
   inset: 0;
 
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.65);
 
   align-items: center;
 
@@ -212,7 +281,9 @@ main {
 }
 
 .modal-content {
-  background: white;
+  background: var(--surface);
+
+  color: var(--text);
 
   padding: 30px;
 
@@ -221,6 +292,8 @@ main {
   width: 90%;
 
   max-width: 400px;
+
+  border: 1px solid var(--border);
 }
 
 .modal-content input,
@@ -229,11 +302,15 @@ main {
 
   margin-top: 12px;
 
-  padding: 15px;
+  padding: 14px;
 
   border-radius: 12px;
 
-  border: 1px solid #ddd;
+  background: var(--surface-light);
+
+  color: var(--text);
+
+  border: 1px solid var(--border);
 }
 
 .modal-actions {
@@ -246,20 +323,197 @@ main {
 
 .modal-actions button {
   flex: 1;
-
-  padding: 14px;
-
-  border-radius: 12px;
-
-  border: 0;
-
-  background: #6366f1;
-
-  color: white;
 }
 
+/* =========================
+   CHART
+========================= */
+
+canvas {
+  max-width: 100%;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 600px) {
+  main {
+    padding: 15px;
+  }
+
   .balance-card h2 {
     font-size: 34px;
   }
+
+  .topbar h1 {
+    font-size: 22px;
+  }
+}
+
+/* =========================
+   EMPTY CHART STATE
+========================= */
+
+.chart-panel {
+  min-height: 220px;
+}
+
+#chart-container {
+  position: relative;
+
+  min-height: 180px;
+}
+
+#empty-chart {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  height: 160px;
+
+  color: var(--muted);
+}
+
+.empty-icon {
+  font-size: 40px;
+
+  opacity: 0.7;
+}
+
+#empty-chart p {
+  margin-top: 10px;
+}
+
+/* =========================
+   MONTH SELECTOR
+========================= */
+
+.month-selector {
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  padding: 15px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.month-selector button {
+  width: 45px;
+
+  height: 45px;
+
+  border-radius: 50%;
+
+  padding: 0;
+}
+
+.month-selector h3 {
+  margin: 0;
+}
+
+/* =========================
+   CUENTAS
+========================= */
+
+.cuentas {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+  gap: 15px;
+}
+
+.cuenta-card {
+  background: var(--surface-light);
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  padding: 20px;
+}
+
+.cuenta-card strong {
+  display: block;
+
+  font-size: 25px;
+
+  margin-top: 10px;
+}
+
+.cuenta-icon {
+  font-size: 30px;
+}
+
+#evolution-container {
+  height: 300px;
+}
+
+/* =========================
+   EXTRA SPACE FOR FLOAT BUTTON
+========================= */
+
+main {
+  padding-bottom: 120px;
+}
+
+/* =========================
+   BOTÓN EXPORTAR PDF
+========================= */
+
+.export-button {
+  width: 100%;
+
+  padding: 14px 20px;
+
+  border-radius: 16px;
+
+  border: 1px solid var(--border);
+
+  background: linear-gradient(135deg, #27272a, #18181b);
+
+  color: var(--text);
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.export-button:hover {
+  background: var(--surface-light);
+
+  border-color: var(--primary);
+
+  transform: translateY(-2px);
+}
+
+.export-button:active {
+  transform: scale(0.98);
 }
