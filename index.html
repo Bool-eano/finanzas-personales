@@ -1,159 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mis Finanzas</title>
-
-<link rel="stylesheet" href="style.css">
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-</head>
-
-<body>
-
-<header>
-    <h1>💰 Mis Finanzas</h1>
-</header>
-
-
-<main>
-
-
-<section class="dashboard">
-
-<div class="card">
-<h3>Balance</h3>
-<p id="balance">0 €</p>
-</div>
-
-<div class="card">
-<h3>Ingresos</h3>
-<p id="ingresos">0 €</p>
-</div>
-
-<div class="card">
-<h3>Gastos</h3>
-<p id="gastos">0 €</p>
-</div>
-
-</section>
-
-
-
-<section class="formulario">
-
-<h2>Añadir movimiento</h2>
-
-
-<select id="tipo">
-<option value="ingreso">Ingreso</option>
-<option value="gasto">Gasto</option>
-</select>
-
-
-<input 
-id="descripcion"
-placeholder="Descripción">
-
-
-<input
-id="importe"
-type="number"
-placeholder="Importe">
-
-
-<select id="categoria">
-
-<option>Vivienda</option>
-<option>Alimentación</option>
-<option>Transporte</option>
-<option>Ocio</option>
-<option>Salud</option>
-<option>Educación</option>
-<option>Otros</option>
-
-</select>
-
-
-<button onclick="agregarMovimiento()">
-Añadir
-</button>
-
-
-</section>
-
-
-
-<section>
-
-<h2>Movimientos</h2>
-
-<table>
-
-<thead>
-<tr>
-<th>Fecha</th>
-<th>Descripción</th>
-<th>Categoría</th>
-<th>Tipo</th>
-<th>Importe</th>
-<th></th>
-</tr>
-</thead>
-
-
-<tbody id="lista">
-</tbody>
-
-
-</table>
-
-</section>
-
-
-
-<section>
-
-<h2>Gastos por categoría</h2>
-
-<canvas id="grafico"></canvas>
-
-</section>
-
-
-
-<section class="backup">
-
-<h2>Copias de seguridad</h2>
-
-
-<button onclick="exportar()">
-Exportar datos
-</button>
-
-
-<input 
-type="file"
-id="archivo"
-accept=".json">
-
-
-<button onclick="importar()">
-Importar
-</button>
-
-
-</section>
-
-
-
-</main>
-
-
-<script src="app.js"></script>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis Finanzas</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>💰 Mis Finanzas</h1>
+    </header>
+
+    <main>
+      <section class="dashboard">
+        <div class="card">
+          <h3>Balance</h3>
+          <p id="balance">0 €</p>
+        </div>
+
+        <div class="card">
+          <h3>Ingresos</h3>
+          <p id="ingresos">0 €</p>
+        </div>
+
+        <div class="card">
+          <h3>Gastos</h3>
+          <p id="gastos">0 €</p>
+        </div>
+      </section>
+
+      <section class="formulario">
+        <h2>Añadir movimiento</h2>
+
+        <select id="tipo">
+          <option value="ingreso">Ingreso</option>
+          <option value="gasto">Gasto</option>
+        </select>
+
+        <input id="descripcion" placeholder="Descripción" />
+        <input id="importe" type="number " placeholder="Importe" />
+
+        <select id="categoria">
+          <option>Vivienda</option>
+          <option>Alimentación</option>
+          <option>Transporte</option>
+          <option>Ocio</option>
+          <option>Salud</option>
+          <option>Educación</option>
+          <option>Otros</option>
+        </select>
+
+        <button onclick="agregarMovimiento()">Añadir</button>
+      </section>
+
+      <section>
+        <h2>Movimientos</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Descripción</th>
+              <th>Categoría</th>
+              <th>Tipo</th>
+              <th>Importe</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody id="lista"></tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Gastos por categoría</h2>
+        <canvas id="grafico"></canvas>
+      </section>
+
+      <section class="backup">
+        <h2>Copias de seguridad</h2>
+        <button onclick="exportar()">Exportar datos</button>
+        <input type="file" id="archivo" accept=".json" />
+        <button onclick="importar()">Importar</button>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
 </html>
