@@ -103,8 +103,28 @@ const categoriasIniciales = [
   },
 
   {
+    nombre: "Restaurantes",
+    icono: "🍽️",
+  },
+
+  {
     nombre: "Salud",
     icono: "💊",
+  },
+
+  {
+    nombre: "Vacaciones",
+    icono: "🌊",
+  },
+
+  {
+    nombre: "Veterinario",
+    icono: "🐈‍⬛",
+  },
+
+  {
+    nombre: "Ropa",
+    icono: "👖",
   },
 
   {
