@@ -1,27 +1,17 @@
 let grafico = null;
 
 const coloresCategorias = {
-  Vivienda: "#8b5cf6",
-
-  Alimentación: "#f59e0b",
-
-  Transporte: "#38bdf8",
-
-  Ocio: "#ec4899",
-
-  Restaurantes: "#ef4444",
-
-  Salud: "#22c55e",
-
-  Vacaciones: "#06b6d4",
-
-  Veterinario: "#a3e635",
-
-  Ropa: "#f97316",
-
-  Ahorros: "#eab308",
-
-  Otros: "#71717a",
+  Vivienda: "#8b5cf6", // Morado
+  Alimentación: "#f97316", // Naranja
+  Transporte: "#3b82f6", // Azul
+  Ocio: "#ec4899", // Rosa
+  Restaurantes: "#ef4444", // Rojo
+  Salud: "#22c55e", // Verde
+  Vacaciones: "#06b6d4", // Turquesa
+  Veterinario: "#84cc16", // Lima
+  Ropa: "#a855f7", // Violeta
+  Ahorros: "#14b8a6", // Verde azulado (Teal)
+  Otros: "#71717a", // Gris
 };
 
 function dibujarGrafico(categorias) {
@@ -114,14 +104,12 @@ function dibujarGrafico(categorias) {
       plugins: {
         legend: {
           position: "bottom",
-
           labels: {
             color: "#f8fafc",
-
-            padding: 20,
-
+            boxWidth: 12,
+            padding: 8,
             font: {
-              size: 14,
+              size: 11,
             },
           },
         },
