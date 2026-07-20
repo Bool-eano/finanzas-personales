@@ -2,89 +2,107 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Mis Finanzas</title>
+
     <link rel="stylesheet" href="style.css" />
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <body>
-    <header>
-      <h1>💰 Mis Finanzas</h1>
+    <header class="topbar">
+      <div>
+        <h1>💰 Mis Finanzas</h1>
+        <p>Control personal</p>
+      </div>
+
+      <button id="theme">🌙</button>
     </header>
 
     <main>
-      <section class="dashboard">
-        <div class="card">
-          <h3>Balance</h3>
-          <p id="balance">0 €</p>
+      <section class="balance-card">
+        <span>Balance actual</span>
+
+        <h2 id="balance">0 €</h2>
+
+        <p class="trend">↑ Buen control financiero</p>
+      </section>
+
+      <section class="summary">
+        <div class="money-card income">
+          <span>Ingresos</span>
+
+          <strong id="ingresos"> 0 € </strong>
         </div>
 
-        <div class="card">
-          <h3>Ingresos</h3>
-          <p id="ingresos">0 €</p>
+        <div class="money-card expense">
+          <span>Gastos</span>
+
+          <strong id="gastos"> 0 € </strong>
         </div>
 
-        <div class="card">
-          <h3>Gastos</h3>
-          <p id="gastos">0 €</p>
+        <div class="money-card saving">
+          <span>Ahorro</span>
+
+          <strong id="ahorro"> 0 € </strong>
         </div>
       </section>
 
-      <section class="formulario">
-        <h2>Añadir movimiento</h2>
+      <section class="panel">
+        <div class="panel-title">
+          <h2>Gastos por categoría</h2>
+        </div>
 
-        <select id="tipo">
-          <option value="ingreso">Ingreso</option>
-          <option value="gasto">Gasto</option>
-        </select>
-
-        <input id="descripcion" placeholder="Descripción" />
-        <input id="importe" type="number " placeholder="Importe" />
-
-        <select id="categoria">
-          <option>Vivienda</option>
-          <option>Alimentación</option>
-          <option>Transporte</option>
-          <option>Ocio</option>
-          <option>Salud</option>
-          <option>Educación</option>
-          <option>Otros</option>
-        </select>
-
-        <button onclick="agregarMovimiento()">Añadir</button>
-      </section>
-
-      <section>
-        <h2>Movimientos</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Fecha</th>
-              <th>Descripción</th>
-              <th>Categoría</th>
-              <th>Tipo</th>
-              <th>Importe</th>
-              <th></th>
-            </tr>
-          </thead>
-
-          <tbody id="lista"></tbody>
-        </table>
-      </section>
-
-      <section>
-        <h2>Gastos por categoría</h2>
         <canvas id="grafico"></canvas>
       </section>
 
-      <section class="backup">
-        <h2>Copias de seguridad</h2>
-        <button onclick="exportar()">Exportar datos</button>
-        <input type="file" id="archivo" accept=".json" />
-        <button onclick="importar()">Importar</button>
+      <section class="panel">
+        <h2>Últimos movimientos</h2>
+
+        <div id="lista" class="movimientos"></div>
       </section>
     </main>
+
+    <button class="floating-button" onclick="abrirModal()">+</button>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <h2>Nuevo movimiento</h2>
+
+        <select id="tipo">
+          <option value="gasto">💸 Gasto</option>
+
+          <option value="ingreso">💰 Ingreso</option>
+        </select>
+
+        <input id="descripcion" placeholder="Descripción" />
+
+        <input id="importe" type="number" placeholder="Importe" />
+
+        <select id="categoria">
+          <option value="Vivienda">🏠 Vivienda</option>
+
+          <option value="Alimentación">🛒 Alimentación</option>
+
+          <option value="Transporte">🚗 Transporte</option>
+
+          <option value="Ocio">🎮 Ocio</option>
+
+          <option value="Salud">💊 Salud</option>
+
+          <option value="Otros">📦 Otros</option>
+        </select>
+
+        <div class="modal-actions">
+          <button onclick="cerrarModal()">Cancelar</button>
+
+          <button onclick="agregarMovimiento()">Guardar</button>
+        </div>
+      </div>
+    </div>
 
     <script src="app.js"></script>
   </body>
