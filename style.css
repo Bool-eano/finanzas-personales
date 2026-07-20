@@ -517,3 +517,9 @@ main {
 .export-button:active {
   transform: scale(0.98);
 }
+
+input,
+textarea,
+select {
+  font-size: 16px;
+}
