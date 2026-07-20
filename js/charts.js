@@ -19,6 +19,8 @@ const coloresCategorias = {
 
   Ropa: "#f97316",
 
+  Ahorros: "#eab308",
+
   Otros: "#71717a",
 };
 

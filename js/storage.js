@@ -128,6 +128,11 @@ const categoriasIniciales = [
   },
 
   {
+  nombre: "Ahorros",
+  icono: "🏦",
+  },
+
+  {
     nombre: "Otros",
     icono: "📦",
   },
